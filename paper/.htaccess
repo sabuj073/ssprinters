@@ -1,0 +1,36 @@
+Header set Access-Control-Allow-Origin *
+RewriteEngine On
+RewriteRule \.(css|jpe?g|gif|png|js|ico)$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^products/(.*)$ product_details.php?slug=$1 [L]
+RewriteRule ^services/(.*)$ service_details.php?slug=$1 [L] 
+RewriteRule ^edit-user/(.*)$ edit-user.php?id=$1 [L]  
+RewriteRule ^sub-category/(.*)$ sub_products.php?cslug=$1 [L]
+RewriteRule ^order-details/(.*)$ order_details.php?id=$1&type=sub_category [L]
+RewriteRule ^sub-sub-category/(.*)$ products.php?slug=$1&type=sub_sub_category [L]
+RewriteRule ^cutting-details$ cutting-details.php [L]
+RewriteRule ^user-list$ user-list.php [L]
+RewriteRule ^lamination-details$ lamination.php [L]
+RewriteRule ^printing-details$ printing-details.php [L]
+RewriteRule ^create-user$ create-user.php [L]
+RewriteRule ^myaccount$ myaccount.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^home$ index.php [L]
+RewriteRule ^pos$ pos.php [L]
+RewriteRule ^make-invoice$ make-invoice.php [L]
+RewriteRule ^invoice$ invoice.php [L]
+RewriteRule ^view-details$ invoice.php [L]
+RewriteRule ^print-invoice$ print_invoice.php [L]
+RewriteRule ^all-transection$ all-transection.php [L]
+RewriteRule ^due-transection$ due-transections.php [L]
+RewriteRule ^settings$ settings.php [L]
+
+
+RewriteRule ^making-details$ making-details.php [L]
+RewriteRule ^foil-details$ foil-details.php [L]
+RewriteRule ^delivery-details$ delivery-details.php [L]
+
+
+

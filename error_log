@@ -1,0 +1,1 @@
+[23-Jun-2021 01:55:43 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/ssprinte/public_html/includes/functions.php on line 473
