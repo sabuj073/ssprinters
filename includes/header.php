@@ -160,23 +160,29 @@ $info = getinfo();
                     <hr>
                     <!-----New Software Work -->
                     <ul class="sidebar-menu">
-                        <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i><span>Master Sheet</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <li><a class="sidebar-header" href="#"><i data-feather="home"></i><span>Master Sheet</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="new-data"><i class="fa fa-circle"></i>New Data</a></li>
                                 <li><a href="po-provider"><i class="fa fa-circle"></i>Po Provider</a></li>
                                  <li><a href="all-data"><i class="fa fa-circle"></i>All Data</a></li>
                             </ul>
                         </li>          
-                        <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i><span>Commercial Invoice</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Commercial Invoice</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="commercial-invoice"><i class="fa fa-circle"></i>Ccommercial Invoice Data (PI Numbers)</a></li>
                             </ul>
                         </li>
-                        <li><a class="sidebar-header" href="#"><i data-feather="user-plus"></i><span>Delivery Chalan</span><i class="fa fa-angle-right pull-right"></i></a>
+                        <li><a class="sidebar-header" href="#"><i data-feather="tag"></i><span>Delivery Chalan</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
                                 <li><a href="delivery-chalan"><i class="fa fa-circle"></i>Delivery Chalan (Pi Numbers)</a></li>
                             </ul>
-                        </li>        
+                        </li> 
+                        <li><a class="sidebar-header" href="#"><i data-feather="dollar-sign"></i><span>Print Ready Invoices</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="all-print-data"><i class="fa fa-circle"></i>Data</a></li>
+                                <li><a href="proforma-invoice">Proforma Invoice</a></li>
+                            </ul>
+                        </li>       
                     </ul>
 
                      <!-----New Software Work -->

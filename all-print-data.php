@@ -1,26 +1,10 @@
 <?php include 'includes/header.php';
 $date = str_replace(" ","",sha1(date('r', time())));
 
-if(isset($_POST['update_lc'])){
-    $ids = $_POST['ids'];
-    $received_lc = mysqli_real_escape_string($con,$_POST['bulk_received_lc']);
-    foreach($ids as $val){
-        $check = update_received_lc($val,$received_lc);
-    }
-    if($check){
-        echo "<script> window.onload = function() {
-          update_msg();
-      }; </script>";
-  }else{
-    echo "<script> window.onload = function() {
-      update_error();
-  }; </script>";
-}
 
-}
 
 if(isset($_GET['del'])){
-    $check = deleteproduct($_GET['del']);
+    $check = deleteprintdata($_GET['del']);
     if($check){
         echo "<script> window.onload = function() {
           update_msg();
@@ -31,41 +15,7 @@ if(isset($_GET['del'])){
   }; </script>";
 }
 }
-if(isset($_POST['insert'])){
 
-
-  $banner ="shop1/assets/images/".$date.$_FILES["image"]["name"];
-  move_uploaded_file($_FILES["image"]["tmp_name"],"../public/shop1/assets/images/".$date.$_FILES["image"]["name"]);
-
-  $check = insert_category_details($_POST,$banner);
-  if($check){
-    echo "<script> window.onload = function() {
-      update_msg();
-  }; </script>";
-}else{
-    echo "<script> window.onload = function() {
-      update_error();
-  }; </script>";
-}
-}
-
-if(isset($_POST['update'])){
-    $banner = "";
-    if($_FILES["image1"]["name"]!=""){
-        $banner ="shop1/assets/images/".$date.$_FILES["image1"]["name"];
-        move_uploaded_file($_FILES["image1"]["tmp_name"],"../public/shop1/assets/images/".$date.$_FILES["image1"]["name"]);
-    }
-    $check = update_category_details($_POST,$banner);
-    if($check){
-        echo "<script> window.onload = function() {
-          update_msg();
-      }; </script>";
-  }else{
-    echo "<script> window.onload = function() {
-      update_error();
-  }; </script>";
-}
-}
 ?>
 
 <div class="page-body">
@@ -76,7 +26,7 @@ if(isset($_POST['update'])){
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-header-left">
-                        <h3>Delivery Chalan
+                        <h3>Data
                             <small><?=$info['shop_name']?> Admin Panel</small>
                         </h3>
                     </div>
@@ -84,7 +34,7 @@ if(isset($_POST['update'])){
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href=""><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item active">Delivery Chalan</li>
+                        <li class="breadcrumb-item active">Data</li>
                     </ol>
                 </div>
             </div>
@@ -98,29 +48,32 @@ if(isset($_POST['update'])){
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Delivery Chalan</h5>
+                        <h5>Data</h5>
                     </div>
                     <div class="card-body">                    
                         <div class="table-responsive">
                           <div class="card-body vendor-table">
                             <table class="display" id="edit">
                                 <thead>
-                                        <th>SL.</th>
-                                        <th>PI Numbers</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="data">
+                                    <th>Invoice ID.</th>
+                                    <th>PI Numbers</th>
+                                    <th>LC NO</th>
+                                    <th>Contract Number</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data">
 
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    </form>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 <!-- Container-fluid Ends-->
 
@@ -142,7 +95,7 @@ if(isset($_POST['update'])){
             url: "action.php",
             method:"POST",
             data:{
-                getdelivery_chalan : 1,
+                getprintdata : 1,
             }, 
             success: function(result){
                 $('#edit').DataTable().clear();

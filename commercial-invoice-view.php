@@ -3,6 +3,27 @@ $date = str_replace(" ","",sha1(date('r', time())));
 $id = $_GET['id'];
 $data = getCommercialInvoice($id);
 
+if(isset($_POST['submit'])){
+
+    $notify = mysqli_real_escape_string($con,$_POST['notify']);
+    $lc_no = mysqli_real_escape_string($con,$_POST['lc_no']);
+    $date1 = mysqli_real_escape_string($con,$_POST['date1']);
+    $contract_number = mysqli_real_escape_string($con,$_POST['contract_number']);
+    $date2 = mysqli_real_escape_string($con,$_POST['date2']);
+    $issuing_bank = mysqli_real_escape_string($con,$_POST['issuing_bank']);
+    $final_destination = mysqli_real_escape_string($con,$_POST['final_destination']);
+    $shop_address = mysqli_real_escape_string($con,$_POST['shop_address']);
+    $print_date =  date("Y-m-d");
+
+    $sql = "INSERT INTO `commercian_invoice_print` (`data_id`, `Notify`, `LC_NO`, `DATE1`,contract_number ,`DATE2`, `Issuing_bank`, `Final_Destination`, `Shop_Address`, `print_date`) VALUES ('$id', '$notify','$lc_no', '$date1', '$contract_number', '$date2', '$issuing_bank', '$final_destination', '$shop_address', '$print_date')";
+
+
+    $query = mysqli_query($con,$sql);
+    $id = mysqli_insert_id($con);
+    echo "<script>window.location.href='commercial-invoice-print?id=".$id."'</script>";
+
+}
+
 ?>
 
 <div class="page-body">
@@ -32,6 +53,7 @@ $data = getCommercialInvoice($id);
     <!-- Container-fluid starts-->
     <div class="container-fluid">
         <div class="row">
+        <form method="post" action="">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
@@ -51,7 +73,7 @@ JAMIRDIA, VALUKA, MYMENSING</textarea></td>
                             </tr>
                             <tr>
                                 <td>EXPORT CONTRACT NUMBER</td>
-                                <td><input type="text" name="lc_no" class="form-control"></td>
+                                <td><input type="text" name="contract_number" class="form-control"></td>
                                 <td>DATE</td>
                                 <td><input type="date" name="date2" class="form-control"></td>
                             </tr>
@@ -73,7 +95,7 @@ JAMIRDIA, VALUKA, MYMENSING</textarea></td>
 GULSHAN BRANCH,
 106, GULSHAN AVENUE,
 DHAKA 1212, BANGLADESH</textarea></td>
-                                <td><textarea rows="5" class="form-control" name="issuing_bank">Notify: -SQ Birichina Limited
+                                <td><textarea rows="5" class="form-control" name="final_destination">Notify: -SQ Birichina Limited
 PLOT NO 221, 222,223
 JAMIRDIA, VALUKA, MYMENSING
 BANGLADESH</textarea></td>
@@ -122,11 +144,12 @@ Badda, Dhaka-1212, Phone: 88-02-55056596</textarea></td>
                         </table>
 
                         <div class="form-group  text-center">
-                            <button class="btn btn-primary">Print</button>
+                            <button class="btn btn-primary" type="submit" name="submit">Print</button>
                         </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
     </div>
     <!-- Container-fluid Ends-->

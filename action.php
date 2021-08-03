@@ -8,24 +8,24 @@ if (session_status() == PHP_SESSION_NONE) {
 <!-- Users List Start -->
 <?php
 if(isset($_POST['getuser'])){
- $getadmin = getadmin();
- while($row = mysqli_fetch_assoc($getadmin)){
-   ?>
-   <tr>
-    <td>
-        <div class="d-flex vendor-list">
-           <span><?=$row['admin_name'];?></span>
-       </div>
-   </td>
-   <td><?=$row['TYPE'];?></td>
-   <td><?=$row['admin_email']; ?></td>
-   <td><?=$row['create_date']; ?></td>
-   <td>
-    <div>
-        <a href="edit-user/<?=$row['admin_id'];?>"><i class="fa fa-edit mr-2 font-success"></i></a>
-        <a href="user-list?del=<?=$row['admin_id'];?>"><i class="fa fa-trash font-danger"></i></a>
-    </div>
-</td>
+   $getadmin = getadmin();
+   while($row = mysqli_fetch_assoc($getadmin)){
+     ?>
+     <tr>
+        <td>
+            <div class="d-flex vendor-list">
+             <span><?=$row['admin_name'];?></span>
+         </div>
+     </td>
+     <td><?=$row['TYPE'];?></td>
+     <td><?=$row['admin_email']; ?></td>
+     <td><?=$row['create_date']; ?></td>
+     <td>
+        <div>
+            <a href="edit-user/<?=$row['admin_id'];?>"><i class="fa fa-edit mr-2 font-success"></i></a>
+            <a href="user-list?del=<?=$row['admin_id'];?>"><i class="fa fa-trash font-danger"></i></a>
+        </div>
+    </td>
 </tr>
 <?php }} ?>
 <!-- Users List End -->
@@ -35,14 +35,14 @@ if(isset($_POST['getuser'])){
 if(isset($_POST['gsm_details'])){
     $getadmin = getgsmdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['gsm'];?></span>
-           </div>
-       </td>
-       <td>
+             <span><?=$row['gsm'];?></span>
+         </div>
+     </td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['gsm_id'];?>','<?=$row['gsm'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="gsm?del=<?=$row['gsm_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -57,15 +57,15 @@ if(isset($_POST['gsm_details'])){
 if(isset($_POST['printdetails'])){
     $getadmin = getprintingdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['color'];?></span>
-           </div>
-       </td>
-       <td><?=$row['price'];?></td>
-       <td>
+             <span><?=$row['color'];?></span>
+         </div>
+     </td>
+     <td><?=$row['price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['printing_details_id'];?>','<?=$row['color'];?>','<?=$row['price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="printing-details?del=<?=$row['printing_details_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -80,15 +80,15 @@ if(isset($_POST['printdetails'])){
 if(isset($_POST['laminationdetails'])){
     $getadmin = getlaminationdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['lam_type'];?></span>
-           </div>
-       </td>
-       <td><?=$row['lam_price'];?></td>
-       <td>
+             <span><?=$row['lam_type'];?></span>
+         </div>
+     </td>
+     <td><?=$row['lam_price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['lamination_details_id'];?>','<?=$row['lam_type'];?>','<?=$row['lam_price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="lamination-details?del=<?=$row['lamination_details_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -103,15 +103,15 @@ if(isset($_POST['laminationdetails'])){
 if(isset($_POST['cuttingdetails'])){
     $getadmin = getcuttingdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['cut_type'];?></span>
-           </div>
-       </td>
-       <td><?=$row['cut_price'];?></td>
-       <td>
+             <span><?=$row['cut_type'];?></span>
+         </div>
+     </td>
+     <td><?=$row['cut_price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['cutting_id'];?>','<?=$row['cut_type'];?>','<?=$row['cut_price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="cutting-details?del=<?=$row['cutting_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -126,15 +126,15 @@ if(isset($_POST['getpoprovider'])){
     $getadmin = getPoprovider();
     $count = 0;
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td><?=++$count;?></td>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['provier_name'];?></span>
-           </div>
-       </td>
-       <td>
+             <span><?=$row['provier_name'];?></span>
+         </div>
+     </td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['po_provider_id'];?>','<?=$row['provier_name'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="po-provider?del=<?=$row['po_provider_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -149,15 +149,15 @@ if(isset($_POST['getpoprovider'])){
 if(isset($_POST['makingdetails'])){
     $getadmin = getmakingdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['making_type'];?></span>
-           </div>
-       </td>
-       <td><?=$row['making_price'];?></td>
-       <td>
+             <span><?=$row['making_type'];?></span>
+         </div>
+     </td>
+     <td><?=$row['making_price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['making_id'];?>','<?=$row['making_type'];?>','<?=$row['making_price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="making-details?del=<?=$row['making_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -172,15 +172,15 @@ if(isset($_POST['makingdetails'])){
 if(isset($_POST['foildetails'])){
     $getadmin = getfoildetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['foil_type'];?></span>
-           </div>
-       </td>
-       <td><?=$row['foil_price'];?></td>
-       <td>
+             <span><?=$row['foil_type'];?></span>
+         </div>
+     </td>
+     <td><?=$row['foil_price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['foid_id'];?>','<?=$row['foil_type'];?>','<?=$row['foil_price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="foil-details?del=<?=$row['foid_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -195,15 +195,15 @@ if(isset($_POST['foildetails'])){
 if(isset($_POST['deliverydetails'])){
     $getadmin = getdeliverydetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['delivery_type'];?></span>
-           </div>
-       </td>
-       <td><?=$row['delivery_price'];?></td>
-       <td>
+             <span><?=$row['delivery_type'];?></span>
+         </div>
+     </td>
+     <td><?=$row['delivery_price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['delivery_id'];?>','<?=$row['delivery_type'];?>','<?=$row['delivery_price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="delivery-details?del=<?=$row['delivery_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -314,7 +314,7 @@ if(isset($_POST['more'])){
     <?php }if($total>0){?>
         <tr>
             <td colspan="3" style="text-align: right;">Sub Total: </td>
-        <td colspan="2" style="text-align: right;"><?=number_format($total,2)." ৳"?></td>
+            <td colspan="2" style="text-align: right;"><?=number_format($total,2)." ৳"?></td>
         </tr>
         <tr>
             <td colspan="3" style="text-align: right;">Delivery Charge: </td>
@@ -343,32 +343,32 @@ if(isset($_POST['more'])){
     }} ?>
 
 
-<!-- Delievered ORder Details Start -->
-<?php
-if(isset($_POST['getalldorders'])){
-    $getadmin = getallorders();
-    while($row = mysqli_fetch_assoc($getadmin)){
-      $due = $row['total']-$row['paid'];
-       ?>
-       <tr>
-        <td><?=$row['order_id']?></td>
-        <td>
-            <div class="d-flex vendor-list">
-               <span><?=$row['name'];?></span>
-           </div>
-       </td>
-       <td><?=$row['number'];?></td>
-       <td><?=$row['total'];?></td>
-       <td><?=$row['profit'];?></td>
-       <td><?=$row['total']-$row['paid'];?></td>
-       <td><?=$row['date']?></td>
-       <td>
-        <div>
-            <a href="view-details?oid=<?=$row['order_id'];?>" ><button class="btn btn-primary">Details</button></a>
-            <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['order_id'];?>','<?=$due;?>')"><button class="btn btn-danger1">Edit</button></a>
-        </div>
-    </td>
-</tr>
+    <!-- Delievered ORder Details Start -->
+    <?php
+    if(isset($_POST['getalldorders'])){
+        $getadmin = getallorders();
+        while($row = mysqli_fetch_assoc($getadmin)){
+          $due = $row['total']-$row['paid'];
+          ?>
+          <tr>
+            <td><?=$row['order_id']?></td>
+            <td>
+                <div class="d-flex vendor-list">
+                 <span><?=$row['name'];?></span>
+             </div>
+         </td>
+         <td><?=$row['number'];?></td>
+         <td><?=$row['total'];?></td>
+         <td><?=$row['profit'];?></td>
+         <td><?=$row['total']-$row['paid'];?></td>
+         <td><?=$row['date']?></td>
+         <td>
+            <div>
+                <a href="view-details?oid=<?=$row['order_id'];?>" ><button class="btn btn-primary">Details</button></a>
+                <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['order_id'];?>','<?=$due;?>')"><button class="btn btn-danger1">Edit</button></a>
+            </div>
+        </td>
+    </tr>
 <?php }} ?>
 <!-- Delievered ORder Details End -->
 
@@ -378,20 +378,20 @@ if(isset($_POST['getduedorders'])){
     $getadmin = getdueorders();
     while($row = mysqli_fetch_assoc($getadmin)){
       $due = $row['total']-$row['paid'];
-       ?>
-       <tr>
+      ?>
+      <tr>
         <td><?=$row['order_id']?></td>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['name'];?></span>
-           </div>
-       </td>
-       <td><?=$row['number'];?></td>
-       <td><?=$row['total'];?></td>
-       <td><?=$row['profit'];?></td>
-       <td><?=$row['total']-$row['paid'];?></td>
-       <td><?=$row['date']?></td>
-       <td>
+             <span><?=$row['name'];?></span>
+         </div>
+     </td>
+     <td><?=$row['number'];?></td>
+     <td><?=$row['total'];?></td>
+     <td><?=$row['profit'];?></td>
+     <td><?=$row['total']-$row['paid'];?></td>
+     <td><?=$row['date']?></td>
+     <td>
         <div>
             <a href="view-details?oid=<?=$row['order_id'];?>" ><button class="btn btn-primary">Details</button></a>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['order_id'];?>','<?=$due;?>')"><button class="btn btn-danger1">Edit</button></a>
@@ -405,16 +405,16 @@ if(isset($_POST['getduedorders'])){
 if(isset($_POST['getcustomer'])){
     $getadmin = getcustomer();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['name'];?></span>
-           </div>
-       </td>
-       <td><?=$row['number'];?></td>
-       <td><?=$row['address'];?></td>
-</tr>
+             <span><?=$row['name'];?></span>
+         </div>
+     </td>
+     <td><?=$row['number'];?></td>
+     <td><?=$row['address'];?></td>
+ </tr>
 <?php }} ?>
 
 <!-- Paper Details Start -->
@@ -422,16 +422,16 @@ if(isset($_POST['getcustomer'])){
 if(isset($_POST['getpaper'])){
     $getadmin = getpaperdetails();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['name'];?></span>
-           </div>
-       </td>
-       <td><?=$row['qty'];?></td>
-       <td><?=$row['price'];?></td>
-       <td>
+             <span><?=$row['name'];?></span>
+         </div>
+     </td>
+     <td><?=$row['qty'];?></td>
+     <td><?=$row['price'];?></td>
+     <td>
         <div>
             <a href="#" data-toggle="modal" data-original-title="test" data-target="#exampleModal1" onclick="getid('<?=$row['paper_id'];?>','<?=$row['name'];?>','<?=$row['qty'];?>','<?=$row['price'];?>')"><i class="fa fa-edit mr-2 font-success"></i></a>
             <a href="paper-price?del=<?=$row['paper_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
@@ -445,20 +445,20 @@ if(isset($_POST['getpaper'])){
 if(isset($_POST['getalldata'])){
     $getadmin = getRawData();
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td><input type="checkbox" name="ids[]" value="<?=$row['new_data_id']?>"></td>
         <td><?=$row['new_data_id'];?></td>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['date'];?></span>
-           </div>
-       </td>
-       <td><?=$row['provier_name'];?></td>
-       <td><?=$row['po_number'];?></td>
-       <td><?=$row['challan_number'];?></td>
-       <td><?=$row['pi_number'];?></td>
-       <td>
+             <span><?=$row['date'];?></span>
+         </div>
+     </td>
+     <td><?=$row['provier_name'];?></td>
+     <td><?=$row['po_number'];?></td>
+     <td><?=$row['challan_number'];?></td>
+     <td><?=$row['pi_number'];?></td>
+     <td>
         <div>
             <a href="edit-data?id=<?=$row['new_data_id'];?>" ><i class="fa fa-edit mr-1 font-success"></i></a>
             <a href="all-data?del=<?=$row['new_data_id'];?>" ><i class="fa fa-trash mr-1 font-danger"></i></a>
@@ -474,20 +474,87 @@ if(isset($_POST['getalldata_master'])){
     $getadmin = getmasterdata();
     $count = 0;
     while($row = mysqli_fetch_assoc($getadmin)){
-       ?>
-       <tr>
+     ?>
+     <tr>
         <td><?=++$count;?></td>
         <td>
             <div class="d-flex vendor-list">
-               <span><?=$row['pi_number'];?></span>
-           </div>
-       </td>
-       <td>
+             <span><?=$row['pi_number'];?></span>
+         </div>
+     </td>
+     <td>
         <div>
-            <a href="commercial-invoice-view?id=<?=$row['pi_number'];?>" ><i class="fa fa-eye mr-2 font-success"></i></a>
-            <a href="commercial-invoice?del=<?=$row['pi_number'];?>" ><i class="fa fa-trash font-danger"></i></a>
+            <a href="commercial-invoice-view?id=<?=$row['pi_number_slug'];?>" ><i class="fa fa-eye mr-2 font-success"></i></a>
+            <a href="commercial-invoice?del=<?=$row['pi_number_slug'];?>" ><i class="fa fa-trash font-danger"></i></a>
+        </div>
+    </td>
+</tr>
+<?php }} ?>
+
+<?php
+if(isset($_POST['getproforma'])){
+    $getadmin = getproforma();
+    $count = 0;
+    while($row = mysqli_fetch_assoc($getadmin)){
+     ?>
+     <tr>
+        <td><?=++$count;?></td>
+        <td>
+            <div class="d-flex vendor-list">
+             <span><?=$row['invoice_no'];?></span>
+         </div>
+     </td>
+     <td>
+        <div>
+            <a href="print-proforma-invoice?id=<?=$row['proforma_id'];?>" ><i class="fa fa-eye mr-2 font-success"></i></a>
+            <a href="edit-proforma-invoice?oid=<?=$row['proforma_id'];?>" ><i class="fa fa-edit font-danger"></i></a>
+            <a href="proforma-invoice?del=<?=$row['proforma_id'];?>" ><i class="fa fa-trash font-danger"></i></a>
         </div>
     </td>
 </tr>
 <?php }} ?>
 <!-- Master Data End -->
+
+<?php
+if(isset($_POST['getprintdata'])){
+    $getadmin = getprintalldata();
+    $count = 0;
+    while($row = mysqli_fetch_assoc($getadmin)){
+     ?>
+     <tr>
+        <td><?=$row['print_id'];?></td>
+        <td>
+            <div class="d-flex vendor-list">
+             <span><?=getpinumberbyslug($row['data_id']);?></span>
+         </div>
+     </td>
+     <td>
+        <div class="d-flex vendor-list">
+         <span><?=$row['LC_NO'];?></span>
+     </div>
+ </td>
+ <td><?=$row['contract_number'];?></td>
+ <td><?=$row['DATE1'];?></td>
+ <td>
+    <div>
+        <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Action
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a target="_blank" class="dp-a" href="commercial-invoice-print?id=<?=$row['print_id']?>">Commercial Invoice</a></li>
+                <li><a target="_blank" class="dp-a" href="delivery-chalan-print?id=<?=$row['data_id']?>">Delivery Chalan</a></li>
+                <?php
+                    if(getboestatus($row['data_id'])>0){
+                ?>
+                <li><a target="_blank" class="dp-a" href="print-boe?id=<?=$row['data_id']?>">Bill Of Exchange</a></li>
+            <?php }else{ ?>
+                <li><a target="_blank" class="dp-a" href="create-boe?id=<?=$row['data_id']?>">Create Bill Of Exchange </a></li>
+            <?php } ?>
+                <li><a class="dp-a" href="edit-print-data?id=<?=$row['print_id']?>">Edit</a></li><br>
+                <li><a class="dp-a" href="all-print-data?del=<?=$row['print_id']?>">Delete</a></li>
+            </ul>
+        </div>
+    </div>
+</td>
+</tr>
+<?php }} ?>

@@ -13,8 +13,9 @@ if(isset($_POST['add'])){
     $profit = mysqli_real_escape_string($con,$_POST['profit']);
     $challan_number = mysqli_real_escape_string($con,$_POST['challan_number']);
     $pi_number = mysqli_real_escape_string($con,$_POST['pi_number']);
+    $pi_number_slug = mysqli_real_escape_string($con,$_POST['pi_number_slug']);
     $received_lc = mysqli_real_escape_string($con,$_POST['received_lc']);
-    $query = mysqli_query($con,"INSERT INTO `new_data` (`new_data_id`, `date`, `unit`, `po_provider`, `po_number`, `bill_qty`, `goods_description`, `po_value`, `po_unit_price`, `po_costing`, `profit`, `challan_number`, `pi_number`, `received_lc`) VALUES (NULL, '$date', '$unit', '$po_provider', '$po_number', '$bill_qty', '$goods_description', '$po_value', '$po_unit_price', '$po_costing', '$profit', '$challan_number', '$pi_number', '$received_lc')");
+    $query = mysqli_query($con,"INSERT INTO `new_data` (`new_data_id`, `date`, `unit`, `po_provider`, `po_number`, `bill_qty`, `goods_description`, `po_value`, `po_unit_price`, `po_costing`, `profit`, `challan_number`, `pi_number`,pi_number_slug,`received_lc`) VALUES (NULL, '$date', '$unit', '$po_provider', '$po_number', '$bill_qty', '$goods_description', '$po_value', '$po_unit_price', '$po_costing', '$profit', '$challan_number', '$pi_number','$pi_number_slug','$received_lc')");
 
     if($query){
         echo "<script> window.onload = function() {
@@ -127,8 +128,10 @@ if(isset($_POST['add'])){
                         </div>
                         <div class="form-group col-md-6">
                             <label for="pi_number" class="col-form-label"><span></span>Pi Number</label>
-                            <input class="form-control" id="pi_number" type="text" name="pi_number" >
+                            <input class="form-control" id="pi_number" type="text" name="pi_number" onkeyup="convertToSlug()">
+                            <input class="form-control" id="pi_number_slug" type="hidden" name="pi_number_slug" >
                         </div>
+
                         <div class="form-group col-md-6">
                             <label for="received_lc" class="col-form-label"><span></span>Received Lc</label>
                             <input class="form-control" id="received_lc" type="text" name="received_lc">
@@ -155,14 +158,14 @@ if(isset($_POST['add'])){
 <?php include 'includes/footer.php'; ?>
 <script type="text/javascript">
     function convertToSlug(){
-        var Text = $("#title").val();
+        var Text = $("#pi_number").val();
 
         Text = Text
         .toLowerCase()
         .replace(/ /g,'-')
         .replace(/[^\w-]+/g,'')
         ;
-        $("#url").val(Text);
+        $("#pi_number_slug").val(Text);
     }
     function getsubcat(){
      var cat = $("#cat").val();

@@ -1222,6 +1222,25 @@ function getordersdetailsbyid($id){
 }
 
 
+function getcommercialinvoiceinfo($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM `commercian_invoice_print` where print_id='$id'");
+	return mysqli_fetch_assoc($query);
+}
+
+function gerperformadata($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM `proforma_invoice` where proforma_id='$id'");
+	return mysqli_fetch_assoc($query);
+}
+
+
+function getdeliverychalan_info($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM `commercian_invoice_print` where data_id='$id'");
+	return mysqli_fetch_assoc($query);
+}
+
 
 function getallorders(){
 	global $con;
@@ -1363,6 +1382,12 @@ function getmasterdata(){
 	return $query;
 }
 
+function getproforma(){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM `proforma_invoice`");
+	return $query;
+}
+
 function update_received_lc($id,$lc){
 	global $con;
 	$query = mysqli_query($con,"UPDATE new_data set pi_number='$lc' where new_data_id='$id'");
@@ -1377,7 +1402,63 @@ function getdataamount(){
 
 function getCommercialInvoice($pi){
 	global $con;
-	$query = mysqli_query($con,"SELECT *,DATE_FORMAT(date,'%d-%M-%Y') format_date FROM `new_data` WHERE pi_number = '$pi'");
+	$query = mysqli_query($con,"SELECT *,DATE_FORMAT(date,'%d-%M-%Y') format_date FROM `new_data` WHERE pi_number_slug = '$pi'");
+	return $query;
+}
+
+function getperformainvoiceDetails($pi){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM porforma_details WHERE porforma_id  = '$pi'");
+	return $query;
+}
+
+function getprintalldata(){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM commercian_invoice_print");
+	return $query;
+}
+
+function getprintdata($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * FROM commercian_invoice_print where print_id = '$id'");
+	return mysqli_fetch_assoc($query);
+}
+
+function deleteprintdata($id){
+	global $con;
+	$query = mysqli_query($con,"DELETE from commercian_invoice_print where print_id='$id'");
+	return $query;
+}
+
+function getpinumberbyslug($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * from new_data where pi_number_slug='$id' GROUP BY pi_number");
+	$query = mysqli_fetch_assoc($query);
+	return $query['pi_number'];
+
+}
+
+function getboestatus($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * from bill_of_exchange where pi_slug = '$id'");
+	return mysqli_affected_rows($con);
+}
+
+function getboedata($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * from bill_of_exchange where pi_slug = '$id'");
+	return mysqli_fetch_assoc($query);
+}
+
+function getboedata_related($id){
+	global $con;
+	$query = mysqli_query($con,"SELECT * from commercian_invoice_print where data_id = '$id'");
+	return mysqli_fetch_assoc($query);
+}
+
+function deleteperforma($id){
+	global $con;
+	$query = mysqli_query($con,"DELETE from proforma_invoice where proforma_id = '$id'");
 	return $query;
 }
 

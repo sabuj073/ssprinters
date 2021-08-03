@@ -47,6 +47,24 @@ RewriteRule ^all-data$ all-data.php [L]
 RewriteRule ^edit-data$ edit-data.php [L]
 RewriteRule ^commercial-invoice$ master-data.php [L]
 RewriteRule ^commercial-invoice-view$ commercial-invoice-view.php [L]
+RewriteRule ^commercial-invoice-print$ commercial-invoice-print.php [L]
+
+RewriteRule ^delivery-chalan-print$ delivery-chalan-print.php [L]
+RewriteRule ^all-print-data$ all-print-data.php [L]
+RewriteRule ^edit-print-data$ edit-print-data.php [L]
+RewriteRule ^create-boe$ create-boe.php [L]
+RewriteRule ^print-boe$ print-boe.php [L]
+RewriteRule ^proforma-invoice$ proforma-invoice.php [L]
+RewriteRule ^create-proforma-invoice$ create-proforma-invoice.php [L]
+RewriteRule ^print-proforma-invoice$ print-proforma-invoice.php [L]
+
+RewriteRule ^edit-proforma-invoice$ edit-proforma-invoice.php [L]
+
+
+
+
+
+
 RewriteRule ^delivery-chalan$ delivery-chalan.php [L]
 RewriteRule ^duplicate-data$ duplicate-data.php [L]
 

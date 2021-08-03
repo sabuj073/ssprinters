@@ -20,7 +20,7 @@ if(isset($_POST['update_lc'])){
 }
 
 if(isset($_GET['del'])){
-    $check = deleteproduct($_GET['del']);
+    $check = deleteperforma($_GET['del']);
     if($check){
         echo "<script> window.onload = function() {
           update_msg();
@@ -76,7 +76,7 @@ if(isset($_POST['update'])){
             <div class="row">
                 <div class="col-lg-6">
                     <div class="page-header-left">
-                        <h3>Delivery Chalan
+                        <h3>Proforma Invoice
                             <small><?=$info['shop_name']?> Admin Panel</small>
                         </h3>
                     </div>
@@ -84,7 +84,7 @@ if(isset($_POST['update'])){
                 <div class="col-lg-6">
                     <ol class="breadcrumb pull-right">
                         <li class="breadcrumb-item"><a href=""><i data-feather="home"></i></a></li>
-                        <li class="breadcrumb-item active">Delivery Chalan</li>
+                        <li class="breadcrumb-item active">Proforma Invoice</li>
                     </ol>
                 </div>
             </div>
@@ -98,9 +98,12 @@ if(isset($_POST['update'])){
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Delivery Chalan</h5>
+                        <h5>Proforma Invoice</h5>
                     </div>
-                    <div class="card-body">                    
+                    <div class="card-body">   
+                    <div class="btn-popup pull-right">
+                            <a href="create-proforma-invoice"><button type="button" class="btn btn-secondary">Create Proforma Invoice</button></a>
+                        </div>                 
                         <div class="table-responsive">
                           <div class="card-body vendor-table">
                             <table class="display" id="edit">
@@ -142,7 +145,7 @@ if(isset($_POST['update'])){
             url: "action.php",
             method:"POST",
             data:{
-                getdelivery_chalan : 1,
+                getproforma : 1,
             }, 
             success: function(result){
                 $('#edit').DataTable().clear();
